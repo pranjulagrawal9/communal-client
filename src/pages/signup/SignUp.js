@@ -30,7 +30,7 @@ function SignUp() {
     <div className="signup-container">
       <div className="signup-box">
         <form onSubmit={handleSubmit}>
-          <h2 className="logo">Sociogram</h2>
+          <h2 className="logo">Communal</h2>
           <h2 className="below-logo">Sign up to see photos and videos from your friends.</h2>
           {/* <label htmlFor="name">Name</label> */}
           <input

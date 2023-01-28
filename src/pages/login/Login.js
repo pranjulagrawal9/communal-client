@@ -39,7 +39,7 @@ function Login() {
       </div>
       <div className="login-box">
         <form onSubmit={handleSubmit}>
-          <h2>Sociogram</h2>
+          <h2>Communal</h2>
           {/* <label htmlFor="email">Email</label> */}
           <input
             type="email"

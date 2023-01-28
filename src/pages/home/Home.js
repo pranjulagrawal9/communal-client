@@ -40,7 +40,7 @@ function Home() {
     <div className="main-container" id='main-container'>
       <div className="sidebar">
         <div className="heading">
-          <h1>Sociogram</h1>
+          <h1>Communal</h1>
         </div>
         <div className="menu-items">
           <div className="menu-item" onClick={() => navigate("/")}>
