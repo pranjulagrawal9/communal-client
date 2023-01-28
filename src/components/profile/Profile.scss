@@ -101,7 +101,7 @@
             align-items: center;
             justify-content: center;
             width: 67px;
-            margin-left: 65px;
+            margin-left: 230px;
             border-top: 2px solid black;
             position: relative;
             bottom: 2px;
@@ -109,7 +109,59 @@
         }
         
         .bottom-part{
-            width: 45vw;
+
+            .display-posts{
+                width: 45vw;
+            }
+
+            .display-empty{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 70px;
+
+                .empty-profile-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    align-items: center;
+
+                    .camera-icon-container{
+                        border: 2px solid black;
+                        height: 75px;
+                        width: 75px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        svg{
+                            font-size: 2.5rem;
+                        }
+                    }
+
+                    h2{
+                        font-size: 2rem;
+                    }
+
+                    .share-btn-in-empty{
+                        background: none;
+                        border: none;
+                        color: #2496e3;
+                        font-weight: 600;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: #064b79;
+                        }
+
+                        &:active{
+                            color: #064b79b4
+                        }
+                    }
+                }
+            }
+            
         }
     }
     

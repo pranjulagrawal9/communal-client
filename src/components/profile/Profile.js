@@ -7,10 +7,12 @@ import Post from '../post/Post';
 import './Profile.scss'
 import {GrGrid} from 'react-icons/gr';
 import {MdLogout} from 'react-icons/md';
+import {BsCamera} from 'react-icons/bs'
 import { Tooltip } from 'antd';
 import { myPosts, userPosts } from '../../store/slices/postSlice';
 import axiosinstance from '../../utils/axiosInstance';
 import { ACCESS_TOKEN_LOCAL_STORAGE_KEY, removeItem } from '../../utils/localStorageManager';
+import { toggleCreateModal } from '../../store/slices/appConfigSlice';
 
 function Profile() {
     const navigate= useNavigate();
@@ -95,40 +97,66 @@ function Profile() {
             </div>
             
             <div className="bottom-part">
-            {!isMyProfile && userFeed?.map((post) => {
-            return (
-              <Post
-                userImg={post.owner?.userImg?.url}
-                name={post.owner.name}
-                postImg={post.image.url}
-                likesCount={post.likesCount}
-                caption={post.caption}
-                key={post._id}
-                postId= {post._id}
-                isLiked= {post.isLiked}
-                isMyProfile= {isMyProfile}
-                timeCreated= {post.timeCreated}
-              />
-            );
-          })}
+              <div className="display-posts">
+                {!isMyProfile && userFeed?.map((post) => {
+              return (
+                <Post
+                  userImg={post.owner?.userImg?.url}
+                  name={post.owner.name}
+                  postImg={post.image.url}
+                  likesCount={post.likesCount}
+                  caption={post.caption}
+                  key={post._id}
+                  postId= {post._id}
+                  isLiked= {post.isLiked}
+                  isMyProfile= {isMyProfile}
+                  timeCreated= {post.timeCreated}
+                />
+              );
+            })}
 
-            {isMyProfile && currUserFeed?.map((post) => {
-            return (
-              <Post
-                userImg={post.owner?.userImg?.url}
-                name={post.owner.name}
-                postImg={post.image.url}
-                likesCount={post.likesCount}
-                caption={post.caption}
-                key={post._id}
-                postId= {post._id}
-                isLiked= {post.isLiked}
-                isMyProfile= {isMyProfile}
-                timeCreated= {post.timeCreated}
-              />
-            );
-          })}
+              {isMyProfile && currUserFeed?.map((post) => {
+              return (
+                <Post
+                  userImg={post.owner?.userImg?.url}
+                  name={post.owner.name}
+                  postImg={post.image.url}
+                  likesCount={post.likesCount}
+                  caption={post.caption}
+                  key={post._id}
+                  postId= {post._id}
+                  isLiked= {post.isLiked}
+                  isMyProfile= {isMyProfile}
+                  timeCreated= {post.timeCreated}
+                />
+              );
+            })}
+              </div>
+            
+            <div className="display-empty">
+                {(isMyProfile && currUserFeed.length===0) && 
+                <div className="empty-profile-container">
+                  <div className="camera-icon-container">
+                    <BsCamera />
+                  </div>
+                  <h2>Share photos</h2>
+                  <p>When you share photos, they will appear on your profile.</p>
+                  <button className='share-btn-in-empty' onClick={()=> dispatch(toggleCreateModal(true))} >Share your first photo</button>
+                </div>
+              }
+
+              {(!isMyProfile && userFeed.length===0) && 
+                <div className="empty-profile-container">
+                  <div className="camera-icon-container">
+                    <BsCamera />
+                  </div>
+                  <h2>No posts yet</h2>
+                </div>
+              }
             </div>
+
+          
+          </div>
         </div>
     </div>
   )
