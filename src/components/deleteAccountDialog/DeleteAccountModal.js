@@ -17,7 +17,7 @@ function DeleteAccountModal() {
             dispatch(toggleDeleteAccountModal(false));
             await axiosinstance.get('/api/user/deleteAccount');
             removeItem(ACCESS_TOKEN_LOCAL_STORAGE_KEY);
-            window.location.replace('/signup');
+            window.location.replace('/#/signup');
     
         } catch (error) {
             console.log(error);

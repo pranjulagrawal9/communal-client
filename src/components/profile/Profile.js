@@ -53,7 +53,7 @@ function Profile() {
       try {
         await axiosinstance.get('/api/auth/logout');
         removeItem(ACCESS_TOKEN_LOCAL_STORAGE_KEY);
-        window.location.replace('/login');
+        window.location.replace('/#/login');
       } catch (error) {
         console.log((error.message));
       }
