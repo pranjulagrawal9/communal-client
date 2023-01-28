@@ -1,0 +1,23 @@
+.ant-modal-content{
+    padding-block: 30px;
+
+    .ant-modal-close, .ant-modal-header{
+        display: none;
+    }
+
+    .ant-modal-body{
+        font-size: 1.2rem;
+        padding-top: 15px;
+    }
+    
+    .ant-modal-footer{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+
+        .ant-btn{
+            font-weight: 700;
+        }
+    }
+}
+

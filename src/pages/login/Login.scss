@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
+.login-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #f8f8f8;
+
+    .phone-image-container{
+      width: 400px;
+
+      img{
+        width: 100%;
+      }
+    }
+  
+    .login-box{
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      padding: 20px 40px;
+      width: 300px;
+      background-color: white;
+      width: 350px;
+     
+      h2{
+        text-align: center;
+        margin: 20px 20px 30px;
+        font-family: 'Rochester', cursive;
+        font-size: 48px;
+      }
+  
+      input, label{
+        display: block;
+        margin-bottom: 10px;
+      }
+      input{
+        width: 100%;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border: 1px solid lightgrey;
+        outline-color: grey;
+      }
+  
+      label{
+        font-weight: 700;
+      }
+  
+      .signup-heading{
+        margin-bottom: 10px;
+        margin-block: 20px;
+
+        a{
+          text-decoration: none;
+          color: #028ce9;
+        }
+      }
+  
+      .submit-btn{
+        padding: 10px;
+        // background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+        background-color: #51b9ff;
+        color: white;
+        border: none;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+  
+      .submit-btn:hover{
+        background-color: #0091f2;
+      }
+    }
+  }
+  
+  

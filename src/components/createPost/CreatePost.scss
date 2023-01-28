@@ -1,0 +1,79 @@
+.create-post{
+
+    .ant-modal-content{
+        .ant-modal-header{
+            display: block;
+
+            .ant-modal-title{
+                text-align: center;
+            
+                hr{
+                    border: 1px solid rgb(232, 232, 232);
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .ant-modal-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+            .image-container{
+                display: flex;
+                justify-content: space-between;
+                width: 50vw;
+                position: relative;
+        
+                .caption{
+                    width: 42%;
+        
+                    textarea{
+                        resize: none;
+                        font-size: 1rem;
+                        padding: 10px;
+                        border-radius: 5px;
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        word-break: break-all;
+                    }   
+                }            
+            }
+
+            .share-btn{
+                font-size: 1.2rem;
+                text-align: right;
+                width: 100%;
+                color: rgb(22, 144, 192);
+                cursor: pointer;
+            }
+
+            .modal-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                min-height: 400px;
+                min-width: 400px;
+            
+                p{
+                    font-size: 1.2rem;
+                }
+            
+                .fileInput{
+                    display: none;
+                }
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+

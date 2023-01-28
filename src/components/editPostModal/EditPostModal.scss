@@ -1,0 +1,56 @@
+.editModal{
+
+    .ant-modal-content{
+
+        .ant-modal-body{
+            padding-top: 0;
+
+            .editbox{
+
+                .img-container{
+                    position: relative;
+            
+                    .editPostImg{
+                        display: none;
+                    }
+            
+                    .editImgLabel{
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        bottom: 7px;
+                        left: 0;
+                        cursor: pointer;
+                        opacity: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+            
+                        &:hover{
+                            background-color: rgba(48, 48, 48, 0.556);
+                            color: white;
+                            opacity: 1;
+                        }
+                    }
+                }
+            
+                textarea{
+                    resize: none;
+                    font-size: 1rem;
+                    padding: 10px;
+                    border-radius: 5px;
+                    width: 100%;
+                    word-break: break-all;
+                    outline-color: #1677ff;
+                    background-color: rgba(240, 240, 240, 0.822);
+                }
+            }
+        }
+
+        .ant-modal-footer{
+            padding-bottom: 0;
+            justify-content: space-between;
+        }
+    }
+}
+

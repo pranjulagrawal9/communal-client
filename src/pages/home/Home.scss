@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
+.main-container{
+    display: flex;
+
+    .sidebar{
+        position: fixed;
+        height: 100vh;
+        width: 240px;
+        border-right: 1px solid lightgrey;
+
+        h1{
+            padding: 36px 26px 44px;
+            font-family: 'Rochester', cursive;
+        }
+
+        .menu-items{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .menu-item{
+                    border-radius: 30px;
+                    display: flex;
+                    width: 220px;
+                    padding: 10px;
+                    align-items: center;
+                    gap: 15px;
+                    margin-left: 10px;
+                    cursor: pointer;
+
+                .icon{
+                    font-size: 2rem;
+
+                    &:visited{
+                        text-decoration: none;
+                    }
+                }
+                span{
+                    font-size: 1.2rem;
+                    color: #3e3e3e;
+                }
+            }
+
+            .menu-item:hover{
+                background-color: rgb(243, 243, 243);
+
+                .icon{
+                   scale: 1.1; 
+                }
+            }
+        }
+    }
+
+    .home-outlet{
+        width: 100%;
+        margin-left: 240px;
+        background-color: #F7F7F7;
+    }
+
+    .loading-container{
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        z-index: 20;
+        background-color: rgb(0 0 0 / 51%);
+    
+        .lds-facebook {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            z-index: 10;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .lds-facebook div {
+            display: inline-block;
+            position: absolute;
+            left: 8px;
+            width: 16px;
+            background: #51b9ff;
+            animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+          }
+          .lds-facebook div:nth-child(1) {
+            left: 8px;
+            animation-delay: -0.24s;
+          }
+          .lds-facebook div:nth-child(2) {
+            left: 32px;
+            animation-delay: -0.12s;
+          }
+          .lds-facebook div:nth-child(3) {
+            left: 56px;
+            animation-delay: 0;
+          }
+          @keyframes lds-facebook {
+            0% {
+              top: 8px;
+              height: 64px;
+            }
+            50%, 100% {
+              top: 24px;
+              height: 32px;
+            }
+          }
+    }
+}
+
+.overflow-hidden{
+    height: 100vh;
+    overflow: hidden;
+}

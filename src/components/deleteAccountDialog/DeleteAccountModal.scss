@@ -1,0 +1,29 @@
+.deleteModal{
+
+    .ant-modal-content{
+       
+       
+    
+        .ant-modal-body{
+            font-size: 1.2rem;
+            padding-top: 10px;
+
+            p{
+                text-align: center;
+            }
+        }
+        
+        .ant-modal-footer{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+    
+            .ant-btn{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+
+

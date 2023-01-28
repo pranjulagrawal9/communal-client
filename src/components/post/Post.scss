@@ -1,0 +1,86 @@
+.post{
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 10px;
+    margin-block: 20px;
+
+    .user-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+
+        .left-part-post{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding-left: 10px;
+    
+            p, .avatar{
+                cursor: pointer;
+            }
+
+            .time-box{
+                .time, .dot{
+                    color: rgb(142, 142, 142);
+                }
+                .dot{
+                    margin-right: 3px;
+                }
+            }
+            
+        }
+
+        .edit-delete{
+            display: flex;
+            gap: 20px;
+
+            .delete-post, .edit-post {
+                cursor: pointer;
+            }
+        }
+    }
+   
+    .post-img{
+        width: 100%;
+    }
+
+    .footer{
+        padding-inline: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .like-box{
+            font-size: 1.5rem;
+            display: flex;
+            gap: 15px;
+
+            svg{
+                cursor: pointer;
+
+                &:hover{
+                    stroke: grey;
+                }
+            }
+
+            svg.not-liked{
+                transition: transform 0.05s ease-out;
+
+                &:active{
+                    transform: scale(1.2);
+                }
+            }
+
+            svg.liked{
+                stroke: red;
+                fill: red;
+            }
+            
+        }
+    }
+}

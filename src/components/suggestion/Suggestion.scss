@@ -1,0 +1,39 @@
+.suggestion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgb(228, 228, 228);
+            border-radius: 20px;
+            padding-right: 10px;
+        }
+    }
+
+    .followUnfollow{
+
+        .follow-btn{
+            color: rgb(43, 178, 232);
+            cursor: pointer;
+
+            &:hover{
+                color: black;
+            }
+        }
+
+        .following-btn{
+            color: black;
+            cursor: pointer;
+
+            &:hover{
+                color: rgb(81, 81, 81);
+            }
+        }
+    }
+}

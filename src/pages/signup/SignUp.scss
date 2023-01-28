@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
+.signup-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+  
+    .signup-box{
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      padding: 20px 40px;
+      width: 350px;
+      background-color: white;
+     
+      h2.logo{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        text-align: center;
+        font-family: 'Rochester', cursive;
+        font-size: 48px;
+      }
+
+      h2.below-logo{
+        color: rgb(142, 142, 142);
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+  
+      input, label{
+        display: block;
+        margin-bottom: 10px;
+      }
+      input{
+        width: 100%;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border: 1px solid lightgrey;
+        outline-color: grey;
+        border-radius: 5px;
+      }
+  
+      label{
+        font-weight: 700;
+      }
+  
+      .login-heading{
+        margin-bottom: 10px;
+        margin-block: 20px;
+
+        a{
+          text-decoration: none;
+          color: #028ce9;
+        }
+      }
+  
+      .submit-btn{
+        padding: 10px;
+        // background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+        background-color: #51b9ff;
+        color: white;
+        border: none;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+  
+      .submit-btn:hover{
+        // background: linear-gradient(to bottom,#ffdc8a,#e2b032);
+        background-color: #0091f2;
+      }
+    }
+  }
+  
+  

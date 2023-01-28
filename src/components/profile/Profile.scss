@@ -1,0 +1,116 @@
+.profile{
+    min-height: 100vh;
+
+    .container{
+        width: 90%;
+        margin-inline: auto;
+
+        .top-part{
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 30px;
+
+            .profile-avatar{
+                width: 150px;
+                height: 150px;
+            }
+    
+            .image-right{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+    
+                .name-and-edit{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+    
+                    h2{
+                        font-weight: 500;
+                    }
+    
+                    .edit-btn{
+                        border: none;
+                        padding: 10px 15px;
+                        background-color: rgb(236, 236, 236);
+                        border-radius: 5px;
+                        font-weight: 600;
+                        cursor: pointer;
+                    }
+
+                    .follow-btn{
+                        background-color: #269ae7;
+                        color: white;
+                        border-radius: 8px;
+                        padding: 8px 20px;
+                        border: none;
+                        cursor: pointer;
+                        font-weight: 600;
+
+                        &:hover{
+                            background-color: #1086d5;
+                        }
+                    }
+
+                    .following-btn{
+                        background-color: rgb(237, 237, 237);
+                        color: black;
+                        border-radius: 8px;
+                        padding: 8px 20px;
+                        border: none;
+                        cursor: pointer;
+                        font-weight: 600;
+
+                        &:hover{
+                            background-color: rgb(226, 226, 226);
+                        }
+                    }
+
+                    .logout-box{
+                        background-color: lightgrey;
+                        padding: 5px;
+                        border-radius: 10px;
+
+                        &:active{
+                            scale: 0.8;
+                        }
+
+                        .logout-btn{
+                            cursor: pointer;
+                        }
+                    }
+                }
+    
+                .details{
+                    display: flex;
+                    gap: 30px;
+                    font-size: 1.2rem;
+    
+                    span{
+                        font-weight: 600;
+                    }
+                }
+
+            }
+        }
+
+        .posts-heading{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            width: 67px;
+            margin-left: 65px;
+            border-top: 2px solid black;
+            position: relative;
+            bottom: 2px;
+            padding-top: 10px;
+        }
+        
+        .bottom-part{
+            width: 45vw;
+        }
+    }
+    
+}
