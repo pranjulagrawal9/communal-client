@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setTopLoading } from "../../store/slices/appConfigSlice";
 import axiosinstance from "../../utils/axiosInstance";
 import Avatar from "../avatar/Avatar";
 import Post from "../post/Post";
@@ -13,6 +14,7 @@ function Feed() {
   const userName = myProfile?.user?.name;
   const [feedData, setFeedData] = useState([]);
   const navigate= useNavigate();
+  const dispatch= useDispatch();
 
   useEffect(() => {
     fetchPostsOfFollowing();
@@ -20,11 +22,15 @@ function Feed() {
 
   async function fetchPostsOfFollowing() {
     try {
+      dispatch(setTopLoading(true));
       const response = await axiosinstance.get("/api/post/postsOfFollowings");
       console.log(response);
       setFeedData(response.data.result);
     } catch (error) {
       console.log(error.message);
+    }
+    finally{
+      dispatch(setTopLoading(false));
     }
   }
 
