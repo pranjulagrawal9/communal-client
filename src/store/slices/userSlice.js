@@ -2,12 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosinstance from "../../utils/axiosInstance";
 import { setTopLoading } from "./appConfigSlice";
 
-export const followUnfollow= createAsyncThunk('/user/followUnfollow', async (body)=>{
+export const followUnfollow= createAsyncThunk('/user/followUnfollow', async (body, thunkAPI)=>{
     try {
         const response= await axiosinstance.post('/api/user/followUnfollow', {
             userToFollowId: body.userIdToFollow
         });
 
+        thunkAPI.dispatch(getUserProfile({
+            userId: body.userIdToFollow
+        }));
         return response.data.result;
     } catch (error) {
         return Promise.reject(error.message);
@@ -51,7 +54,7 @@ export const userSlice= createSlice({
             console.log(state.userProfile);
         })
         .addCase(followUnfollow.fulfilled, (state, action)=>{
-            state.userProfile.isFollowed= !state.userProfile.isFollowed;
+            // state.userProfile.isFollowed= !state.userProfile.isFollowed;
             if(action.payload==="Followed")
                 state.userProfile.numFollowers++;
             else

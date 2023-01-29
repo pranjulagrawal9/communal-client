@@ -25,6 +25,7 @@ function Profile() {
     const [isMyProfile, setIsMyProfile] = useState(false);
     const userFeed= useSelector(state=> state.postSlice.userFeed);
     const currUserFeed= useSelector(state=> state.postSlice.currUserFeed);
+    // const [isFollowed, setIsFollowed] = useState(false);
 
     useEffect(() => {
         dispatch(userPosts({
@@ -44,11 +45,9 @@ function Profile() {
     }, [params.userId, myProfile])
 
     async function handleFollowUnfollow(){
-        const result= dispatch(followUnfollow({
+        dispatch(followUnfollow({
             userIdToFollow: params.userId
         }));
-
-        console.log(result);
     }
 
     async function handleLogout(){

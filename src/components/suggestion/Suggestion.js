@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { followUnfollow, getUserProfile } from "../../store/slices/userSlice";
@@ -9,19 +9,26 @@ function Suggestion({avatarImg, name, userId}) {
   const navigate= useNavigate();
   const dispatch= useDispatch();
   const userProfile= useSelector(state=> state.userSlice.userProfile);
-  const isFollowed= userProfile?.isFollowed;
+  const [isFollowed, setIsFollowed] = useState(false);
+
+  // const isFollowed= userProfile?.isFollowed;
 
   useEffect(() => {
     dispatch(getUserProfile({
-      userId: userId
+      userId
     }));
   }, [])
+
+  useEffect(() => {
+    if(userId===userProfile?.user?._id)
+      setIsFollowed(userProfile?.isFollowed);
+  }, [userProfile])
+  
   
   async function handleFollowUnfollow(){
-    const result= await dispatch(followUnfollow({
+    dispatch(followUnfollow({
         userIdToFollow: userId
     }));
-    console.log(result);
 }
 
   return (
