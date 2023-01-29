@@ -9,9 +9,18 @@
         width: 240px;
         border-right: 1px solid lightgrey;
 
-        h1{
-            padding: 36px 26px 44px;
+        .heading{
+          display: flex;
+          padding: 24px 0px 35px 22px;
+
+          h1{
             font-family: 'Rochester', cursive;
+            cursor: pointer;
+
+            &:active{
+              color: rgba(0, 0, 0, 0.516);
+            }
+          }
         }
 
         .menu-items{
