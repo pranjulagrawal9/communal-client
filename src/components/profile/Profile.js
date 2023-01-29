@@ -12,7 +12,7 @@ import { Tooltip } from 'antd';
 import { myPosts, userPosts } from '../../store/slices/postSlice';
 import axiosinstance from '../../utils/axiosInstance';
 import { ACCESS_TOKEN_LOCAL_STORAGE_KEY, removeItem } from '../../utils/localStorageManager';
-import { toggleCreateModal } from '../../store/slices/appConfigSlice';
+import { setTopLoading, toggleCreateModal } from '../../store/slices/appConfigSlice';
 
 function Profile() {
     const navigate= useNavigate();
@@ -53,11 +53,15 @@ function Profile() {
 
     async function handleLogout(){
       try {
+        dispatch(setTopLoading(true));
         await axiosinstance.get('/api/auth/logout');
         removeItem(ACCESS_TOKEN_LOCAL_STORAGE_KEY);
         window.location.replace('/#/login');
       } catch (error) {
         console.log((error.message));
+      }
+      finally{
+        dispatch(setTopLoading(false));
       }
     }
 
