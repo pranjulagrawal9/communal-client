@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import {
   ACCESS_TOKEN_LOCAL_STORAGE_KEY,
@@ -8,14 +8,18 @@ import {
 } from "../../utils/localStorageManager";
 import "./Login.scss";
 import phonneImg from '../../assets/phone-image.png'
+import { useDispatch } from "react-redux";
+import { setTopLoading } from "../../store/slices/appConfigSlice";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch= useDispatch();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      dispatch(setTopLoading(true));
       const response = await axiosInstance.post("/api/auth/login", {
         email,
         password,
@@ -24,11 +28,14 @@ function Login() {
 
       const accesstoken = response.data.result.accesstoken;
       setItem(ACCESS_TOKEN_LOCAL_STORAGE_KEY, accesstoken);
-      if(response.data.status==='ok')
-        window.location.replace('/');
+      // if(response.data.status==='ok')
+      window.location.replace('/');
     } 
     catch (error) {
       console.log(error);
+    }
+    finally{
+      dispatch(setTopLoading(false));
     }
   }
 

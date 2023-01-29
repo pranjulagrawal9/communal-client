@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setTopLoading } from "../../store/slices/appConfigSlice";
 import axiosInstance from "../../utils/axiosInstance";
 import "./SignUp.scss";
 
@@ -8,21 +10,25 @@ function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch= useDispatch();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      dispatch(setTopLoading(true));
       const response = await axiosInstance.post("/api/auth/signup", {
         name,
         email,
         password,
       });
       console.log(response);
-
-      if(response.data.status==='ok')
-        window.location.replace('/login');
+      
+      window.location.replace('/login');
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      dispatch(setTopLoading(false));
     }
   }
 
