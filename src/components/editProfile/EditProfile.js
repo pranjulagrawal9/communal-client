@@ -100,6 +100,7 @@ function EditProfile() {
               placeholder="Name"
               className="nameInput"
               value={name}
+              spellCheck="false"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -111,6 +112,7 @@ function EditProfile() {
               id="email"
               placeholder="Email"
               value={email}
+              spellCheck="false"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>

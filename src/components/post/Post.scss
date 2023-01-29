@@ -37,11 +37,43 @@
 
         .edit-delete{
             display: flex;
-            gap: 20px;
+            gap: 10px;
 
             .delete-post, .edit-post {
                 cursor: pointer;
+                border: 1px solid black;
+                border-radius: 50%;
+                padding: 3px;
+                height: 1.6em;
+                width: 2.6em;
             }
+
+            .delete-post{
+
+                &:hover{
+                    background-color: rgb(219, 1, 1);
+                    color: white;
+                    border: none;
+                }
+
+                &:active{
+                    scale: 0.8;
+                }
+            }
+
+            .edit-post{
+
+                &:hover{
+                    background-color:  #4593ffa1;
+                    border: none;
+                    color: white;
+                }
+
+                &:active{
+                    scale: 0.8;
+                }
+            }
+            
         }
     }
    

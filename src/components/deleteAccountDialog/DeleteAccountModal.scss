@@ -21,6 +21,14 @@
             .ant-btn{
                 font-weight: 700;
             }
+
+            .ant-btn-dangerous{
+
+                &:hover{
+                     background-color: red;
+                color: white;
+                }
+            }
         }
     }
 }

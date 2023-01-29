@@ -66,7 +66,7 @@ function Post({userImg, name, postImg, likesCount, caption, postId, isLiked, own
                 <Tooltip title="Edit Post" >
                     <GrEdit onClick={handleEditPost} className="edit-post" />
                 </Tooltip>
-                <Tooltip title="Delete Post">
+                <Tooltip title="Delete Post" >
                     <RiDeleteBin6Line onClick={handleDeletePost} className="delete-post" />
                 </Tooltip>
             </div>}
