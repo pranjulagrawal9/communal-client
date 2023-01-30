@@ -23,7 +23,7 @@ function SignUp() {
       });
       console.log(response);
       
-      window.location.replace('/login');
+      window.location.replace('/#/login');
     } catch (error) {
       console.log(error);
     }
