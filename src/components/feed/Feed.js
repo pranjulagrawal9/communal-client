@@ -68,7 +68,7 @@ function Feed() {
               <p onClick={()=> navigate('/suggested')} >See All</p>
             </div>
 
-            {myProfile?.suggestions.map((suggestion) => {
+            {myProfile?.suggestions.slice(0, 5).map((suggestion) => {
               return (
                 <Suggestion
                   key={suggestion._id}
