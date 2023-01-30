@@ -11,6 +11,8 @@ import { getMyInfoThunk, toggleCreateModal } from "../../store/slices/appConfigS
 import DeletePostDialog from "../../components/deletePostDialog/DeletePostDialog";
 import EditPostModal from "../../components/editPostModal/EditPostModal";
 import DeleteAccountModal from "../../components/deleteAccountDialog/DeleteAccountModal";
+import FollowingModal from "../../components/followingModal/FollowingModal";
+import FollowerModal from "../../components/followerModal/FollowerModal";
 
 function Home() {
   const navigate = useNavigate();
@@ -62,6 +64,8 @@ function Home() {
           <DeletePostDialog />
           <EditPostModal />
           <DeleteAccountModal />
+          <FollowingModal />
+          <FollowerModal />
 
           <div className="menu-item" onClick={() => navigate(`/profile/${myUserId}`)}>
             <Avatar avatarClass="icon" avatarSrc={src} />

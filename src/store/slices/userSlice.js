@@ -36,7 +36,7 @@ export const getUserProfile= createAsyncThunk('/user/userInfo', async (body, thu
 export const userSlice= createSlice({
     name: 'userSlice',
     initialState: {
-        userProfile: null,
+        userProfile: null
     },
 
     reducers:{

@@ -33,7 +33,10 @@ export const appConfigSlice= createSlice({
         openDeleteAccountModal: false,
         showLoading: false,
         showTopLoading: false,
-        showMessage: false
+        showMessage: false,
+        isFollowingModalOpen: false,
+        isMyProfile: false,
+        isFollowerModalOpen: false
     },
     reducers: {
         toggleCreateModal: (state, action)=>{
@@ -53,6 +56,18 @@ export const appConfigSlice= createSlice({
         },
         setshowMessage: (state, action)=>{
             state.showMessage= action.payload;
+        },
+
+        toggleFollowingModal: (state, action)=>{
+            state.isFollowingModalOpen= action.payload
+        },
+
+        setIsMyProfile: (state, action)=>{
+            state.isMyProfile= action.payload;
+        },
+
+        toggleFollowerModal: (state, action)=>{
+            state.isFollowerModalOpen= action.payload;
         }
     },
 
@@ -72,5 +87,5 @@ export const appConfigSlice= createSlice({
     
 });
 
-export const {toggleCreateModal, toggleDeleteAccountModal, setShowLoading, setTopLoading, setshowMessage}= appConfigSlice.actions;
+export const {toggleCreateModal, toggleDeleteAccountModal, setShowLoading, setTopLoading, setshowMessage, toggleFollowingModal, setIsMyProfile, toggleFollowerModal}= appConfigSlice.actions;
 export default appConfigSlice.reducer;

@@ -1,22 +1,25 @@
 .feed{
-    // background-color: #F7F7F7;
     min-height: 100vh;
 
     .container{
         display: flex;
-        width: 80%;
+        width: 85%;
         margin-inline: auto;
         gap: 25px;
 
         .left-part{
             width: 60%;
-            // background-color: green;
-            // height: 100vh;
+
+            .empty-feed{
+
+                h2{
+                    margin-top: 140px;
+                    text-align: center;
+                }
+            }
         }
         .right-part{
             width: 40%;
-            // background-color: bisque;
-            // height: 100vh;
             display: flex;
             flex-direction: column;
             gap: 20px;

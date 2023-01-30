@@ -54,6 +54,10 @@ function Feed() {
               />
             );
           })}
+
+          {feedData.length===0 && <div className="empty-feed">
+              <h2>It looks like you are not following anyone, Follow someone to see their posts.</h2>
+            </div>}
           
         </div>
         <div className="right-part">

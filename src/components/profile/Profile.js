@@ -12,7 +12,7 @@ import { Tooltip } from 'antd';
 import { myPosts, userPosts } from '../../store/slices/postSlice';
 import axiosinstance from '../../utils/axiosInstance';
 import { ACCESS_TOKEN_LOCAL_STORAGE_KEY, removeItem } from '../../utils/localStorageManager';
-import { setTopLoading, toggleCreateModal } from '../../store/slices/appConfigSlice';
+import { getMyInfoThunk, setIsMyProfile, setTopLoading, toggleCreateModal, toggleFollowerModal, toggleFollowingModal } from '../../store/slices/appConfigSlice';
 
 function Profile() {
     const navigate= useNavigate();
@@ -22,10 +22,12 @@ function Profile() {
     const userProfile= useSelector(state=> state.userSlice.userProfile);
     const isFollowed= userProfile?.isFollowed;
     const currUserId= myProfile?.user._id;
-    const [isMyProfile, setIsMyProfile] = useState(false);
+    // const [isMyProfile, setIsMyProfile] = useState(false);
+    const isMyProfile= useSelector(state=> state.appConfigSlice.isMyProfile);
     const userFeed= useSelector(state=> state.postSlice.userFeed);
     const currUserFeed= useSelector(state=> state.postSlice.currUserFeed);
     // const [isFollowed, setIsFollowed] = useState(false);
+    const profilePage= true;
 
     useEffect(() => {
         dispatch(userPosts({
@@ -36,13 +38,39 @@ function Profile() {
     
 
     useEffect(() => {
-        setIsMyProfile(currUserId===params.userId);
+        // setIsMyProfile(currUserId===params.userId);
+        dispatch(setIsMyProfile(currUserId===params.userId));
 
         if(params)
-            dispatch(getUserProfile({
-                userId: params.userId
-            }));
+          dispatch(getUserProfile({
+            userId: params.userId
+          }));
+            
     }, [params.userId, myProfile])
+
+    useEffect(() => {
+        dispatch(getMyInfoThunk());
+    }, [params.userId])
+    
+
+    useEffect(() => {
+      dispatch(toggleFollowingModal(false));
+      dispatch(toggleFollowerModal(false));
+    }, [params.userId])
+    
+
+    useEffect(() => {
+      if((myProfile?.user?.followers?.length===0) || (userProfile?.user?.followers?.length===0))
+        dispatch(toggleFollowerModal(false));
+
+    }, [myProfile?.user?.followers?.length, userProfile?.user?.followers?.length])
+    
+    useEffect(() => {
+      if((myProfile?.user?.followings?.length===0) || (userProfile?.user?.followings?.length===0))
+        dispatch(toggleFollowingModal(false));
+
+    }, [myProfile?.user?.followings?.length, userProfile?.user?.followings?.length])
+
 
     async function handleFollowUnfollow(){
         dispatch(followUnfollow({
@@ -64,14 +92,24 @@ function Profile() {
       }
     }
 
+    function handleToggleFollowerModal(){
+      if((isMyProfile && myProfile?.user?.followers?.length!==0) || (!isMyProfile && userProfile?.user?.followers?.length!==0))
+        dispatch(toggleFollowerModal(true));
+    }
+
+    function handleToggleFollowingModal(){
+      if((isMyProfile && myProfile?.user?.followings?.length!==0) || (!isMyProfile && userProfile?.user?.followings?.length!==0))
+        dispatch(toggleFollowingModal(true));
+    }
+
   return (
     <div className='profile'>
         <div className="container">
             <div className="top-part">
-                <Avatar avatarClass="profile-avatar" avatarSrc={userProfile?.user?.userImg?.url}/>
+                <Avatar avatarClass="profile-avatar" avatarSrc={isMyProfile? myProfile?.user?.userImg?.url : userProfile?.user?.userImg?.url}/>
                 <div className="image-right">
                     <div className="name-and-edit">
-                        <h2>{userProfile?.user.name}</h2>
+                        <h2>{isMyProfile? myProfile?.user.name : userProfile?.user.name}</h2>
                         {isMyProfile && <button className='edit-btn' onClick={()=>navigate('/editProfile')}>Edit Profile</button>}  
                         {!isMyProfile && <button className={isFollowed? 'following-btn' : 'follow-btn' } onClick={handleFollowUnfollow}>{isFollowed ? 'Following': 'Follow'}</button>} 
                         {isMyProfile && <div className='logout-box'>
@@ -81,13 +119,13 @@ function Profile() {
                         </div>}
                     </div>
                     <div className="details">
-                        <p><span>{userProfile?.numPosts}</span> posts</p>
-                        <p><span>{userProfile?.numFollowers}</span> followers</p>
-                        <p><span>{userProfile?.numFollowings}</span> followings</p>
+                        <p><span>{isMyProfile? myProfile?.numPosts : userProfile?.numPosts}</span> posts</p>
+                        <p className='followers' onClick={handleToggleFollowerModal} ><span>{isMyProfile? myProfile?.numFollowers : userProfile?.numFollowers}</span> followers</p>
+                        <p className='followings' onClick={handleToggleFollowingModal}><span>{isMyProfile? myProfile?.numFollowings : userProfile?.numFollowings}</span> followings</p>
                     </div>
 
                     <div className="bio-box">
-                      <p>{userProfile?.user?.bio}</p>
+                      <p>{isMyProfile? myProfile?.user?.bio : userProfile?.user?.bio}</p>
                     </div>
                 </div>
             </div>

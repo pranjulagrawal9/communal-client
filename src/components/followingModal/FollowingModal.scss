@@ -1,0 +1,96 @@
+.following-modal{
+
+    .ant-modal-content{
+        height: 371px;
+        overflow: auto;
+
+        .ant-modal-close, .ant-modal-header{
+            display: block;
+        }
+
+        .ant-modal-close{
+
+            svg{
+                font-size: 1.2rem;
+            }
+        }
+
+        .ant-modal-header{
+
+            .ant-modal-title{
+
+                p{
+                    text-align: center;
+                }
+
+                hr{
+                    border-color: #ffffff9e;
+                }
+            }
+        }
+
+        .ant-modal-body{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .suggestion{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                .left{
+    
+                    &:hover{
+                        background-color: transparent;
+                        border-radius: 0;
+                        padding-right: 0;
+                    }
+    
+                    img{
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                    p{
+                        font-size: 16px;
+                    }
+                }
+    
+                .followUnfollow{
+    
+                    .follow-btn{
+                            background-color: #269ae7;
+                            color: white;
+                            border-radius: 8px;
+                            padding: 8px 20px;
+                            border: none;
+                            cursor: pointer;
+                            font-weight: 600;
+                            margin-left: 19.9919px;;
+    
+                            &:hover{
+                                background-color: #1086d5;
+                            }
+                    }
+    
+                    .following-btn{
+                        background-color: rgb(237, 237, 237);
+                        color: black;
+                        border-radius: 8px;
+                        padding: 8px 20px;
+                        border: none;
+                        cursor: pointer;
+                        font-weight: 600;
+    
+                        &:hover{
+                            background-color: rgb(222, 222, 222);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
