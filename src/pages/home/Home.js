@@ -3,6 +3,8 @@ import "./Home.scss";
 import { Outlet, useNavigate } from "react-router-dom";
 import { GrHomeRounded } from "react-icons/gr";
 import { BsSearch } from "react-icons/bs";
+import {BiMessageRoundedDetail} from 'react-icons/bi'
+import { Tooltip } from 'antd';
 import { IoCreateOutline } from "react-icons/io5";
 import Avatar from "../../components/avatar/Avatar";
 import CreatePost from "../../components/createPost/CreatePost";
@@ -50,10 +52,21 @@ function Home() {
             <span>Home</span>
           </div>
 
-          <div className="menu-item">
-            <BsSearch className="icon" />
-            <span>Search</span>
-          </div>
+          <Tooltip title='This feature is in development' placement="right" trigger="click" overlayStyle={{width: '130px', textAlign: 'center'}} >
+            <div className="menu-item">
+              <BsSearch className="icon" />
+              <span>Search</span>
+            </div>
+          </Tooltip>
+          
+
+          <Tooltip title='This feature is in development' placement="right" trigger="click" overlayStyle={{width: '130px', textAlign: 'center'}} >
+            <div className="menu-item">
+              <BiMessageRoundedDetail className="icon" />
+              <span>Messages</span>
+            </div>
+          </Tooltip>
+          
 
           <div className="menu-item" onClick={()=>dispatch(toggleCreateModal(true))}>
             <IoCreateOutline className="icon" />
