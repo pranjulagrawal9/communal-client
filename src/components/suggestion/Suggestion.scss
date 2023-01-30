@@ -21,6 +21,7 @@
         .follow-btn{
             color: rgb(43, 178, 232);
             cursor: pointer;
+            border: none;
 
             &:hover{
                 color: black;
@@ -28,6 +29,7 @@
         }
 
         .following-btn{
+            border: none;
             color: black;
             cursor: pointer;
 

@@ -65,7 +65,7 @@ function Feed() {
           <div className="suggestions-box">
             <div className="heading">
               <h4>Suggestions for you</h4>
-              <p>See All</p>
+              <p onClick={()=> navigate('/suggested')} >See All</p>
             </div>
 
             {myProfile?.suggestions.map((suggestion) => {

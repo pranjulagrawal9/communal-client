@@ -38,7 +38,7 @@ function Suggestion({avatarImg, name, userId}) {
         <p>{name}</p>
       </div>
       <div className="followUnfollow">
-        <p className={isFollowed? 'following-btn' : 'follow-btn'} onClick={handleFollowUnfollow}>{isFollowed? 'Following': 'Follow'}</p>
+        <button className={isFollowed? 'following-btn' : 'follow-btn'} onClick={handleFollowUnfollow}>{isFollowed? 'Following': 'Follow'}</button>
       </div>
     </div>
   );

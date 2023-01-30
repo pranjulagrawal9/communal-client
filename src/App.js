@@ -11,6 +11,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import IfNotLoggedIn from "./components/IfNotLoggedIn";
+import Suggested from "./components/suggested/Suggested";
 
 function App() {
   const loadingRef= useRef(null);
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<Feed />} />
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/editProfile" element={<EditProfile />} />
+            <Route path="/suggested" element={<Suggested />} />
           </Route>
         </Route>
 

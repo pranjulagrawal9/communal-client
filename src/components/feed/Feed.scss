@@ -49,6 +49,14 @@
                     h4{
                         color: grey;
                     }
+
+                    p{
+                        cursor: pointer;
+
+                        &:hover{
+                            color: rgba(0, 0, 0, 0.551);
+                        }
+                    }
                 }
             }
         }
