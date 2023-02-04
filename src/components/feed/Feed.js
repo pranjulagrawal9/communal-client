@@ -24,7 +24,6 @@ function Feed() {
     try {
       dispatch(setTopLoading(true));
       const response = await axiosinstance.get("/api/post/postsOfFollowings");
-      console.log(response);
       setFeedData(response.data.result);
     } catch (error) {
       console.log(error.message);

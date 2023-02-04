@@ -20,7 +20,6 @@ axiosinstance.interceptors.request.use(
     config.headers["Authorization"] = `Bearer ${getItem(
       ACCESS_TOKEN_LOCAL_STORAGE_KEY
     )}`;
-    console.log(config);
     return config;
   },
   function (error) {
@@ -29,7 +28,6 @@ axiosinstance.interceptors.request.use(
 );
 
 axiosinstance.interceptors.response.use(async function (response) {
-  console.log(response);
 
   const originalRequest = response.config;
 

@@ -51,10 +51,8 @@ export const userSlice= createSlice({
     extraReducers: (builder)=> {
         builder.addCase(getUserProfile.fulfilled , (state, action)=>{
             state.userProfile= action.payload;
-            console.log(state.userProfile);
         })
         .addCase(followUnfollow.fulfilled, (state, action)=>{
-            // state.userProfile.isFollowed= !state.userProfile.isFollowed;
             if(action.payload==="Followed")
                 state.userProfile.numFollowers++;
             else
