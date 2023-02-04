@@ -116,6 +116,7 @@ function CreatePost() {
             id="fileInput"
             className="fileInput"
             onChange={handleFileChooser}
+            accept="image/*"
           />
         </div>
       )}

@@ -90,6 +90,7 @@ function EditProfile() {
           id="photoInput"
           className="photoInput"
           onChange={handleFileInput}
+          accept="image/*"
         />
         <form>
           <div className="inputs-container">
